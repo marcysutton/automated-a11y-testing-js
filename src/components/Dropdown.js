@@ -39,7 +39,9 @@ const Dropdown = ({buttonName = '', children}) => {
     const [active, setActive] = useState(false)
 
     return (
-        <StyledDropdown className={active === true ? 'active' : ''}>
+        <StyledDropdown
+            className={active === true ? 'active' : ''}
+        >
             <div
                 className="dropdown-btn"
                 data-testid="dropdown-btn"

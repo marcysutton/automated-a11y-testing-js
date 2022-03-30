@@ -14,14 +14,19 @@ describe('Dropdown', () => {
 
         expect(buttonText).toBeInTheDocument()
     })
-    it('can be operated with the keyboard', () => {
+    it('the dropdown button can be reached with the keyboard', () => {
         render(<Dropdown buttonName="Settings" />)
 
-        const dropdownWrapper = screen.getByTestId('dropdown-wrapper')
-        const dropdownButton = screen.getByTestId('dropdown-btn')
+        const dropdownButton = screen.getByRole('button')
 
         userEvent.tab()
         expect(dropdownButton).toHaveFocus()
+    })
+    it('the dropdown button can be operated with the keyboard', () => {
+        render(<Dropdown buttonName="Smashing" />)
+
+        const dropdownButton = screen.getByTestId('dropdown-btn')
+        const dropdownWrapper = screen.getByTestId('dropdown-wrapper')
 
         userEvent.click(dropdownButton)
         expect(dropdownButton).toHaveAttribute('aria-expanded', 'true')

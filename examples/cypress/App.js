@@ -1,52 +1,58 @@
-import { useRef } from 'react'
+import {useRef} from 'react'
 import './styles.scss'
 import Dropdown from './components/Dropdown'
 
 export function App() {
-	const bannerRef = useRef()
-	const mainRef = useRef()
+	const bannerRef = useRef(null)
+	const headerRef = useRef(null)
 
-	const hideBanner = () => {
+	const notificationClickHandler = () => {
 		bannerRef.current.remove()
 
-		mainRef.current.focus()
+		headerRef.current.focus()
+	}
+	const confirmPayment = () => {
+		return
 	}
 
 	return <>
 		<header id="global-header">
 			<div className="notification-banner" ref={bannerRef}>
 				<div className="header-inner">
-					<p>
-						<span role="img" aria-label="Attention">⚠️</span>
-						Your account was recently updated.</p>
+					<p><span role="img" aria-label="Attention">⚠️</span> Your account was recently updated.</p>
 					<button
-						aria-label="Close banner"
-						className="header-button"
-						onClick={() => { hideBanner() }}
+						aria-label="Close banner" className="header-button"
+						onClick={notificationClickHandler}
 					>
 						X
 					</button>
 				</div>
 			</div>
 			<div className="header-inner">
-				<h1>The Phone Company</h1>
+				<h1
+					className="header-header"
+					data-testid="h1Heading"
+					ref={headerRef} tabIndex="-1"
+				>
+					The Phone Company
+				</h1>
 			</div>
 		</header>
-		<main data-testid="main" ref={mainRef} tabIndex="-1">
-			<section>
+		<main id="main">
+			<div className="section">
 				<header>
 					<h2>Make a Payment</h2>
 					<div className="stepper">
 						<ol aria-label="progress">
-							<li className="inactive" aria-label="Step 1"><span></span></li>
-							<li className="inactive" aria-label="Step 2"><span></span></li>
-							<li aria-label="Step 3" aria-current="step"><span>3</span></li>
+							<li className="inactive"><span></span></li>
+							<li className="inactive"><span></span></li>
+							<li aria-label="Step 3"><span>3</span></li>
 						</ol>
 					</div>
 				</header>
 				<article>
 					<h3>Take a moment to review your payment</h3>
-					<p>Your total payment: $60.00 <a href="#" aria-label="Change amount" className="toggle">Change</a></p>
+					<p>Your total payment: $60.00 <a href="#" className="toggle">Change</a></p>
 
 					<Dropdown buttonName="Details">
 						<h4>Visit Summmary</h4>
@@ -85,7 +91,7 @@ export function App() {
 					</Dropdown>
 
 					<h3>Payment method</h3>
-					<h4>Credit card <a href="#" aria-label="Change payment method" className="toggle">Change</a></h4>
+					<h4>Credit card <a href="#" className="toggle">Change</a></h4>
 					<div className="credit-card">
 						<div className="number">
 							<span className="asterisk">••••</span>
@@ -95,7 +101,7 @@ export function App() {
 						<div className="exp">5/25</div>
 						<div className="flex">
 							<div className="name">Rainier McCheddarton</div>
-							<div className="logo" role="img" aria-label="VISA"></div>
+							<div className="logo" role="img"></div>
 						</div>
 					</div>
 
@@ -106,9 +112,12 @@ export function App() {
 						BELLINGHAM, WA 98229
 					</address>
 
-					<button className="confirm">Confirm payment</button>
+					<div className="confirm" onClick={confirmPayment}>Confirm payment</div>
 				</article>
-			</section>
+			</div>
 		</main>
+		<footer id="footer">
+			&copy; 2021 <a href="#" className="company-logo">Telecommunications Services, Inc.</a>
+		</footer>
 	</>
 }

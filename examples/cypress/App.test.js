@@ -7,9 +7,9 @@ context("App page", () => {
     it('has no accessibility violations on load', () => {
         cy.checkA11y()
     })
-    it('has a header that can be minimized', () => {
+    it('has a notification banner that can be accessibly removed', () => {
         cy.get('[aria-label="Close banner"]').focus().click()
 
-        cy.focused().should('have.attr', 'data-testid', 'main')
+        cy.focused().should('have.attr', 'data-testid', 'h1Heading')
     })
 })
