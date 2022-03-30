@@ -3,25 +3,33 @@ import './styles.scss'
 import Dropdown from './components/Dropdown'
 
 export function App() {
-	const headerRef = useRef()
+	const bannerRef = useRef()
 	const mainRef = useRef()
 
-	const hideHeader = () => {
-		headerRef.current.remove()
+	const hideBanner = () => {
+		bannerRef.current.remove()
 
 		mainRef.current.focus()
 	}
 
 	return <>
-		<header id="global-header" ref={headerRef}>
-			<div>
+		<header id="global-header">
+			<div className="notification-banner" ref={bannerRef}>
+				<div className="header-inner">
+					<p>
+						<span role="img" aria-label="Attention">⚠️</span>
+						Your account was recently updated.</p>
+					<button
+						aria-label="Close banner"
+						className="header-button"
+						onClick={() => { hideBanner() }}
+					>
+						X
+					</button>
+				</div>
+			</div>
+			<div className="header-inner">
 				<h1>The Phone Company</h1>
-				<button
-					aria-label="Hide header"
-					onClick={() => { hideHeader() }}
-				>
-					X
-				</button>
 			</div>
 		</header>
 		<main data-testid="main" ref={mainRef} tabIndex="-1">

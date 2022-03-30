@@ -1,14 +1,24 @@
+import {useRef} from 'react'
 import './styles.scss'
 import Dropdown from './components/Dropdown'
 
 export function App() {
+	const confirmPayment = () => {
+		return
+	}
+
 	return <>
 		<div id="global-header">
-			<div>
-				<h2 className="header-header">The Phone Company</h2>
-				<div aria-label="Hide header" className="header-button">
-					X
+			<div className="notification-banner">
+				<div className="header-inner">
+					<p>⚠️ Your account was recently updated.</p>
+					<div aria-label="Hide header" className="header-button">
+						X
+					</div>
 				</div>
+			</div>
+			<div className="header-inner">
+				<h2 className="header-header">The Phone Company</h2>
 			</div>
 		</div>
 		<div id="main">
@@ -17,15 +27,15 @@ export function App() {
 					<h2>Make a Payment</h2>
 					<div className="stepper">
 						<ol aria-label="progress">
-							<li className="inactive" aria-label="Step 1"><span></span></li>
-							<li className="inactive" aria-label="Step 2"><span></span></li>
-							<li aria-label="Step 3" aria-current="step"><span>3</span></li>
+							<li className="inactive"><span></span></li>
+							<li className="inactive"><span></span></li>
+							<li aria-label="Step 3"><span>3</span></li>
 						</ol>
 					</div>
 				</header>
 				<article>
 					<h3>Take a moment to review your payment</h3>
-					<p>Your total payment: $60.00 <a href="#" aria-label="Change amount" className="toggle">Change</a></p>
+					<p>Your total payment: $60.00 <a href="#" className="toggle">Change</a></p>
 
 					<Dropdown buttonName="Details">
 						<h4>Visit Summmary</h4>
@@ -64,7 +74,7 @@ export function App() {
 					</Dropdown>
 
 					<h3>Payment method</h3>
-					<h4>Credit card <a href="#" aria-label="Change payment method" className="toggle">Change</a></h4>
+					<h4>Credit card <a href="#" className="toggle">Change</a></h4>
 					<div className="credit-card">
 						<div className="number">
 							<span className="asterisk">••••</span>
@@ -74,7 +84,7 @@ export function App() {
 						<div className="exp">5/25</div>
 						<div className="flex">
 							<div className="name">Rainier McCheddarton</div>
-							<div className="logo" role="img" aria-label="VISA"></div>
+							<div className="logo" role="img"></div>
 						</div>
 					</div>
 
@@ -85,7 +95,7 @@ export function App() {
 						BELLINGHAM, WA 98229
 					</address>
 
-					<div className="confirm">Confirm payment</div>
+					<div className="confirm" onClick={confirmPayment}>Confirm payment</div>
 				</article>
 			</div>
 		</div>

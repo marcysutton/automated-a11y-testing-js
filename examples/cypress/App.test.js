@@ -8,7 +8,7 @@ context("App page", () => {
         cy.checkA11y()
     })
     it('has a header that can be minimized', () => {
-        cy.get('[aria-label="Hide header"]').focus().click()
+        cy.get('[aria-label="Close banner"]').focus().click()
 
         cy.focused().should('have.attr', 'data-testid', 'main')
     })
