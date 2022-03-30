@@ -26,7 +26,7 @@
     "@babel/preset-env": "^7.16.0",
     "@babel/preset-react": "^7.16.0",
     "@emotion/babel-plugin": "^11.3.0",
-    "@parcel/transformer-sass": "^2.0.0",
+    "@parcel/transformer-sass": "2.4.0",
     "@testing-library/cypress": "^8.0.1",
     "@testing-library/jest-dom": "^5.15.0",
     "@testing-library/react": "^12.1.2",
@@ -37,7 +37,7 @@
     "cypress-axe": "^0.13.0",
     "jest": "^27.3.1",
     "jest-transform-css": "^2.1.0",
-    "parcel": "latest",
+    "parcel": "^2.4.0",
     "react-test-renderer": "^17.0.2",
     "start-server-and-test": "^1.14.0"
   },
