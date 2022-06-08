@@ -88,7 +88,7 @@ export function App() {
 						<div className="exp">5/25</div>
 						<div className="flex">
 							<div className="name">Rainier McCheddarton</div>
-							<div className="logo" role="img" aria-label="VISA"></div>
+							<div className="logo" role="img"></div>
 						</div>
 					</div>
 

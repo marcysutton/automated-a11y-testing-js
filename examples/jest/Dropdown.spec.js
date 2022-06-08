@@ -5,6 +5,8 @@ import userEvent from '@testing-library/user-event'
 
 import Dropdown  from '../Dropdown'
 
+const user = userEvent.setup()
+
 describe('Dropdown', () => {
     it('labels the dropdown button', () => {
         const textFixture = "Hamburgers"
@@ -19,7 +21,7 @@ describe('Dropdown', () => {
 
         const dropdownButton = screen.getByRole('button')
 
-        userEvent.tab()
+        user.tab()
         expect(dropdownButton).toHaveFocus()
     })
     it('the dropdown button can be operated with the keyboard', () => {
@@ -28,10 +30,10 @@ describe('Dropdown', () => {
         const dropdownButton = screen.getByTestId('dropdown-btn')
         const dropdownWrapper = screen.getByTestId('dropdown-wrapper')
 
-        userEvent.click(dropdownButton)
+        user.click(dropdownButton)
         expect(dropdownButton).toHaveAttribute('aria-expanded', 'true')
 
-        userEvent.type(dropdownWrapper, '{esc}', {skipClick: true})
+        user.type(dropdownWrapper, '{esc}', {skipClick: true})
         expect(dropdownButton).toHaveAttribute('aria-expanded', 'false')
     })
 })

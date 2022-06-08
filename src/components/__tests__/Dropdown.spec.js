@@ -5,6 +5,8 @@ import userEvent from '@testing-library/user-event'
 
 import Dropdown  from '../Dropdown'
 
+const user = userEvent.setup()
+
 describe('Dropdown', () => {
     it('labels the dropdown button', () => {
         const textFixture = "Hamburgers"
