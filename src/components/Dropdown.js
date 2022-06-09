@@ -38,24 +38,16 @@ const StyledDropdown = styled.div`
 const Dropdown = ({buttonName = '', children}) => {
     const [active, setActive] = useState(false)
 
-    const keyHandler = (event) => {
-        if (event.key === 'Escape' && active === true) {
-            setActive(false)
-        }
-    }
     return (
         <StyledDropdown
-            className={active === true ? 'active' : ''} data-testid="dropdown-wrapper"
-            onKeyUp={keyHandler}
+            className={active === true ? 'active' : ''}
         >
-            <button
-                aria-expanded={active === true ? 'true' : 'false'}
-                aria-haspopup="true"
+            <div
                 className="dropdown-btn"
                 data-testid="dropdown-btn"
                 onClick={() => { setActive(!active) }}>
                 {buttonName}
-            </button>
+            </div>
             <div className="dropdown-content">
                 {children}
             </div>

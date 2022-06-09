@@ -16,25 +16,4 @@ describe('Dropdown', () => {
 
         expect(buttonText).toBeInTheDocument()
     })
-    it('the dropdown button can be reached with the keyboard', () => {
-        render(<Dropdown buttonName="Settings" />)
-
-        const dropdownButton = screen.getByRole('button')
-
-        user.tab()
-
-        expect(dropdownButton).toHaveFocus()
-    })
-    it('the dropdown button can be operated with the keyboard', async() => {
-        render(<Dropdown buttonName="Spotify" />)
-
-        const dropdownButton = screen.getByRole('button')
-        const dropdownWrapper = screen.getByTestId('dropdown-wrapper')
-
-        await user.click(dropdownButton)
-        expect(dropdownButton).toHaveAttribute('aria-expanded', 'true')
-
-        await user.keyboard('{Escape}')
-        expect(dropdownButton).toHaveAttribute('aria-expanded', 'false')
-    })
 })

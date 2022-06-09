@@ -24,16 +24,16 @@ describe('Dropdown', () => {
         user.tab()
         expect(dropdownButton).toHaveFocus()
     })
-    it('the dropdown button can be operated with the keyboard', () => {
+    it('the dropdown button can be operated with the keyboard', async() => {
         render(<Dropdown buttonName="Smashing" />)
 
         const dropdownButton = screen.getByTestId('dropdown-btn')
         const dropdownWrapper = screen.getByTestId('dropdown-wrapper')
 
-        user.click(dropdownButton)
+        await user.click(dropdownButton)
         expect(dropdownButton).toHaveAttribute('aria-expanded', 'true')
 
-        user.type(dropdownWrapper, '{esc}', {skipClick: true})
+        await user.type(dropdownWrapper, '{Esc}', {skipClick: true})
         expect(dropdownButton).toHaveAttribute('aria-expanded', 'false')
     })
 })

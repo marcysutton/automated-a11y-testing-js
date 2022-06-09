@@ -3,43 +3,31 @@ import './styles.scss'
 import Dropdown from './components/Dropdown'
 
 export function App() {
-	const bannerRef = useRef(null)
-	const headerRef = useRef(null)
-
-	const notificationClickHandler = () => {
-		bannerRef.current.remove()
-
-		headerRef.current.focus()
-	}
 	const confirmPayment = () => {
 		return
 	}
 
 	return <>
-		<header id="global-header">
-			<div className="notification-banner" ref={bannerRef}>
+		<div id="global-header">
+			<div className="notification-banner">
 				<div className="header-inner">
 					<p>⚠️ Your account was recently updated.</p>
-					<button
-						aria-label="Close banner" className="header-button"
+					<div className="header-button"
 						onClick={notificationClickHandler}
 					>
 						X
-					</button>
+					</div>
 				</div>
 			</div>
 			<div className="header-inner">
 				<h1
 					className="header-header"
-					data-testid="h1Heading"
-					ref={headerRef}
-					tabIndex="-1"
 				>
 					The Phone Company
 				</h1>
 			</div>
-		</header>
-		<main id="main">
+		</div>
+		<div id="main">
 			<div className="section">
 				<header>
 					<h2>Make a Payment</h2>
@@ -102,7 +90,7 @@ export function App() {
 						<div className="exp">5/25</div>
 						<div className="flex">
 							<div className="name">Rainier McCheddarton</div>
-							<div aria-label="VISA" className="logo" role="img"></div>
+							<div className="logo" role="img"></div>
 						</div>
 					</div>
 
@@ -116,9 +104,9 @@ export function App() {
 					<div className="confirm" onClick={confirmPayment}>Confirm payment</div>
 				</article>
 			</div>
-		</main>
-		<footer id="footer">
+		</div>
+		<div id="footer">
 			&copy; 2021 <a href="#" className="company-logo">Telecommunications Services, Inc.</a>
-		</footer>
+		</div>
 	</>
 }
